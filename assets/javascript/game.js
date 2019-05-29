@@ -1,72 +1,46 @@
-/*
- * Global HTML variables
- */
+//Global Variables
 var winText = document.getElementById("winCount");
-var bandName = document.getElementById("currentWord");
-var guessCount = document.getElementById("bandName");
-var alreadyGuessed = document.getElementById("guessedLetters");
+var bandName = document.getElementById("bandName");
+var guessCount = document.getElementById("guessesRemaining");
+var guessedLetters = document.getElementById("guessedLetters");
 var resetButton = document.getElementById("reset-button");
 var wins = 0;
-var totalGuesses = 10;
+var totalGuesses = 12;
 
+//This variable sets the initial number of guesses to 12
+var guesses = 12;
 
+//This variable stores the individuals letters of my chosen band
+var bandName = ["e", "a", "g", "l", "e", "s"];
 
+//This variable will store the letters that the user clicks
+var alreadyGuessed = [];
 
-
-
-/*
- * Set the initial available guess count to 10 guesses
- */
-guessCount.textContent = guesses;
-
-/*
- * Define an array for the English alphabet
- */
-var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
-                'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-
-/*
- * Define the variable containing the solution (band name)
- */
-var bandName = "Eagles";
-
-
-/*
- * Check if the user presses any letter keys
- * If they do, log the key under the alreadyGuessed variable declared on line 7
- */
-function gameStart(e){
-
-    userGuess=e.key;
-
-    if(e.key === 'a' || e.key === 'b' || e.key === 'c' || e.key === 'd' || e.key === 'e' || e.key === 'f'
-    || e.key === 'g' || e.key === 'h' || e.key === 'i' || e.key === 'j' || e.key === 'k' || e.key === 'l' 
-    || e.key === 'm' || e.key === 'n' || e.key === 'o' || e.key === 'p' || e.key === 'q' || e.key === 'r'
-    || e.key === 's' || e.key === 't' || e.key === 'u' || e.key === 'v' || e.key === 'w' || e.key === 'x' 
-    || e.key === 'y' || e.key === 'z'){
-
-        for (var i = 0; i < 20; i++){
-            alreadyGuessed.textContent = userGuess;
-            console.log(alreadyGuessed);
-        }   
-
-
-
+//This function, gameStart, will run once an alphanumeric key is pressed
+//It will store the letters in an the empty array called "alreadyGuessed"
+function gameStart(e) {
+  if (e.keyCode >= 65 && e.keyCode <= 90) {
+    //key codes 65 to 90 represent the alpha keys on a keyboard
+    if (alreadyGuessed.includes(e.key)) {
+      return;
+    } else {
+      alreadyGuessed.push(e.key);
+      guesses--;
     }
-    guessCount.textContent = guesses;
-    initializeScores();
+
+    // This new variable adds spaces between the letters in the alreadyGuessed array
+    var joinedLetters = alreadyGuessed.join(", ");
+    guessedLetters.textContent = joinedLetters;
+  }
+  guessCount.textContent = guesses;
 }
 
 document.onkeyup = gameStart;
+initializeScores();
 
-
-function initializeScores(){
-    wins = 0;
-    guesses = 10;
-    displayScores();
-}
-
-function displayScores(){
-    winText.textContent = wins;
-    guessCount.textContent = guesses;
+function initializeScores() {
+  wins = 0;
+  guesses = 12;
+  winText.textContent = wins;
+  guessCount.textContent = guesses;
 }

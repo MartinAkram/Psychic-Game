@@ -1,53 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Guess the Band Game!</title>
     <!-- CSS Bootstrap -->
-    <link 
-        rel="stylesheet" 
-        href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
-        crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
     <!-- My personal style sheet -->
-    <link 
-        rel="stylesheet" 
-        href="assets/css/styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
     <!-- Container for the whole page -->
     <div class="container-fluid">
-        <!-- Gameboard view -->
-        <div class="card-group" id="rps-card-group">
-            <!-- Card 1 -->
-            <div class="card band-card">
-                <h2>Guess The Band</h2>
-                <img src="assets/images/hotel-california.png" id="user-img" alt="Hotel California">
-                <hr>
-                <h3>Game Rules</h3>
-                <ul>
-                    <li>Take a look at the album cover above</li>
-                    <li>Click the image to hear a snipit of the band's song</li>
-                    <li>Start typing your guess of the band's name</li>
-                    <li>You only have 8 guesses. Use them wisely!</li>
-                    <li>Click the "Reset Game" button to start over</li>
-                </ul>
-            </div>
-            <!-- Card 2 -->
-            <div class="card info-card">
-                <h2>Let's Play!</h2>
-                <hr>
-                <p>Wins: <strong><span id="winCount"></span></strong></p>
-                <p>Band Name <strong><span id="bandName"></span></strong></p>
-                <p>Number of Guesses Remaining: <strong><span id="guessesRemaining"></span></strong></p>
-                <p>Letters Already Guessed <u><strong><span id="guessedLetters"></span></strong></u></p>
-                <button type="button" class="btn btn-danger" id="reset-button">Reset Game</button>
-            </div>
+      <!-- Gameboard view -->
+      <div class="card-group" id="rps-card-group">
+        <!-- Card 1 -->
+        <div class="card band-card">
+          <h2>Guess The Band</h2>
+          <img
+            src="assets/images/hotel-california.png"
+            id="user-img"
+            alt="Hotel-California"
+          />
+          <hr />
+          <h3>Game Rules</h3>
+          <ul>
+            <li>Take a look at the album cover above</li>
+            <li>Click the image to hear a snipit of the band's song</li>
+            <li>Start typing your guess of the band's name</li>
+            <li>You only have 8 guesses. Use them wisely!</li>
+            <li>Click the "Reset Game" button to start over</li>
+          </ul>
         </div>
-        
+        <!-- Card 2 -->
+        <div class="card info-card">
+          <h2>Let's Play!</h2>
+          <hr />
+          <p>
+            Wins: <strong><span id="winCount"></span></strong>
+          </p>
+          <p>
+            Band Name <strong><span id="bandName"></span></strong>
+          </p>
+          <p>
+            Number of Guesses Remaining:
+            <strong><span id="guessesRemaining"></span></strong>
+          </p>
+          <p>
+            Letters Already Guessed
+            <br />
+            <u
+              ><strong><span id="guessedLetters"></span></strong
+            ></u>
+          </p>
+          <button type="button" class="btn btn-danger" id="reset-button">
+            Reset Game
+          </button>
+        </div>
+      </div>
     </div>
-    <script src="assets/javascript/game.js"></script>    
-</body>
+    <script src="assets/javascript/game.js"></script>
+  </body>
 </html>
