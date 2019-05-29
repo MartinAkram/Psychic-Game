@@ -1,0 +1,57 @@
+/* Apply to the whole page */
+body{
+    background-image: url(../images/70s.jpg);
+}
+
+/* Target all elements in my 2 cards */
+.container-fluid{
+    margin-top: 5%;
+    width: 70%;
+}
+.card{
+    text-align: center;
+}
+
+/* Target specific elements in my "Guess the band" card */
+.band-card{
+    padding-top: 2%;
+    background: rgb(236, 191, 66);
+    color: purple;
+    font-family: Impact;
+}
+.band-card img{
+    padding: 1%;
+    height: 300px;
+    width: 300px;
+    display: block;
+    margin: auto;
+    border-style: dotted;
+    border-width: 5px;
+}
+.band-card ul{
+    text-align: left;
+    font-family: sans-serif;
+}
+
+/* Target specific elements in my "Let's Play!" card */
+.info-card{
+    padding-top: 2%;
+    background: rgb(152, 113, 224);
+    color: rgb(255, 196, 0);
+    font-family: Impact;
+}
+
+.info-card p{
+    font-family: sans-serif;
+    margin-top: 4%;
+    margin-bottom: 4%;
+}
+
+
+/* Target the Reset Button */
+#reset-button{
+    width: 50%;
+    display: block;
+    margin: auto;
+}
+
