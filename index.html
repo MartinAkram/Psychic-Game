@@ -28,13 +28,23 @@
             id="user-img"
             alt="Hotel-California"
           />
+          <input
+            type="button"
+            class="alert alert-primary"
+            id="play-button"
+            value="Play / Pause"
+            onclick="playANDpause()"
+          />
+          <audio id="audio" src="assets/music/hotel-california.m4a"></audio>
           <hr />
           <h3>Game Rules</h3>
           <ul>
             <li>Take a look at the album cover above</li>
-            <li>Click the image to hear a snipit of the band's song</li>
+            <li>
+              Click the "Play / Pause" button for a snipit of the cover song
+            </li>
             <li>Start typing your guess of the band's name</li>
-            <li>You only have 8 guesses. Use them wisely!</li>
+            <li>You only have 12 guesses. Use them wisely!</li>
             <li>Click the "Reset Game" button to start over</li>
           </ul>
         </div>

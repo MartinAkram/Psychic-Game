@@ -44,3 +44,23 @@ function initializeScores() {
   winText.textContent = wins;
   guessCount.textContent = guesses;
 }
+
+//The following lines set a button to play my song when the picture is clicked
+//The lines below were retrieved from stackoverflow...**THIS IS NOT ORIGINAL WORK**
+
+var song = document.getElementById("audio");
+var playingSong = false;
+
+function playANDpause() {
+  if (playingSong) {
+    song.pause();
+  } else {
+    song.play();
+  }
+}
+song.onplaying = function() {
+  playingSong = true;
+};
+song.onpause = function() {
+  playingSong = false;
+};

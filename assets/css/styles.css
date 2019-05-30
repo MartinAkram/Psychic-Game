@@ -1,11 +1,12 @@
 /* Apply to the whole page */
 body {
   background-image: url(../images/70s.jpg);
+  height: 1000px;
 }
 
 /* Target all elements in my 2 cards */
 .container-fluid {
-  margin-top: 5%;
+  margin-top: 4%;
   width: 70%;
 }
 .card {
@@ -15,14 +16,16 @@ body {
 /* Target specific elements in my "Guess the band" card */
 .band-card {
   padding-top: 2%;
+  padding-bottom: 2%;
   background: rgb(236, 191, 66);
   color: purple;
   font-family: Impact;
 }
-.band-card img {
+
+#user-img {
   padding: 1%;
-  height: 300px;
-  width: 300px;
+  height: 250px;
+  width: 250px;
   display: block;
   margin: auto;
   border-style: dotted;
@@ -47,8 +50,21 @@ body {
   margin-bottom: 4%;
 }
 
+/* Target the Music Button */
+#play-button {
+  font-family: sans-serif;
+  width: 50%;
+  display: block;
+  margin: auto;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  margin-top: 5%;
+  margin-bottom: 2%;
+}
+
 /* Target the Reset Button */
 #reset-button {
+  font-family: sans-serif;
   width: 50%;
   display: block;
   margin: auto;
