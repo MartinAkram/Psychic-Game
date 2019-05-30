@@ -36,6 +36,13 @@ body {
   font-family: sans-serif;
 }
 
+/* Capitalize the letters guessed by the player and the letters of the solution*/
+#guessedLetters,
+#bandName {
+  text-transform: capitalize;
+  margin-bottom: 0;
+}
+
 /* Target specific elements in my "Let's Play!" card */
 .info-card {
   padding-top: 2%;
@@ -68,4 +75,5 @@ body {
   width: 50%;
   display: block;
   margin: auto;
+  margin-top: 50px;
 }

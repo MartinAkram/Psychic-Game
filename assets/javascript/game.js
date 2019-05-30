@@ -29,7 +29,7 @@ function gameStart(e) {
     }
 
     // This new variable adds spaces between the letters in the alreadyGuessed array
-    var joinedLetters = alreadyGuessed.join(", ");
+    var joinedLetters = alreadyGuessed.join(" ");
     guessedLetters.textContent = joinedLetters;
   }
   guessCount.textContent = guesses;
