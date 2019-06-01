@@ -23,11 +23,7 @@
         <!-- Card 1 -->
         <div class="card band-card">
           <h2>Guess The Band</h2>
-          <img
-            src="assets/images/hotel-california.png"
-            id="user-img"
-            alt="Hotel-California"
-          />
+          <img src="" id="band-img" alt="Band-Picture" />
           <input
             type="button"
             class="alert alert-primary"
@@ -35,16 +31,17 @@
             value="Play / Pause"
             onclick="playANDpause()"
           />
-          <audio id="audio" src="assets/music/hotel-california.m4a"></audio>
+          <audio id="audio" src=""></audio>
           <hr />
           <h3>Game Rules</h3>
           <ul>
-            <li>Take a look at the album cover above</li>
+            <li>There are a total of 4 bands/songs in this game!</li>
+            <li>First, take a look at the album coverimage above</li>
             <li>
-              Click the "Play / Pause" button for a snipit of the cover song
+              Then, click the "Play / Pause" button for a snipit of the song
             </li>
             <li>Start typing your guess of the band's name</li>
-            <li>You only have 12 guesses. Use them wisely!</li>
+            <li>You only have 15 guesses. Use them wisely!</li>
             <li>Click the "Reset Game" button to start over</li>
           </ul>
         </div>
@@ -56,7 +53,8 @@
             Wins: <strong><span id="winCount"></span></strong>
           </p>
           <p>
-            Band Name <strong><span id="bandName"></span></strong>
+            Band Name <br />
+            <strong><span id="bandName"></span></strong>
           </p>
           <p>
             Number of Guesses Remaining:
