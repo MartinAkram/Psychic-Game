@@ -7,7 +7,7 @@ var resetButton = document.getElementById("reset-button");
 var bandImage = document.getElementById("band-img");
 var bandMusic = document.getElementById("audio");
 var wins = 0;
-var totalGuesses = 15;
+var totalGuesses = 10;
 var band;
 var picture;
 var audio;
@@ -21,22 +21,22 @@ var bands = [
     bandName: "eagles",
     bandPicture: "assets/images/hotel-california.png",
     bandAudio: "assets/music/hotel-california.m4a"
+  },
+  {
+    bandName: "aerosmith",
+    bandPicture: "assets/images/aerosmith.png",
+    bandAudio: "assets/music/dream-on.m4a"
+  },
+  {
+    bandName: "led zeppelin",
+    bandPicture: "assets/images/led-zeppelin.jpg",
+    bandAudio: "assets/music/stairway-to-heaven.m4a"
+  },
+  {
+    bandName: "don mclean",
+    bandPicture: "assets/images/don-mclean.png",
+    bandAudio: "assets/music/american-pie.m4a"
   }
-  // {
-  //   bandName: "Aerosmith",
-  //   bandPicture: "assets/images/aerosmith.png",
-  //   bandAudio: "assets/music/dream-on.m4a"
-  // },
-  // {
-  //   bandName: "Led Zeppelin",
-  //   bandPicture: "assets/images/led-zeppelin.jpg",
-  //   bandAudio: "assets/music/stairway-to-heaven.m4a"
-  // },
-  // {
-  //   bandName: "Don McLean",
-  //   bandPicture: "assets/images/don-mclean.png",
-  //   bandAudio: "assets/music/american-pie.m4a"
-  // }
 ];
 
 //This function, gameStart, will run once an alphanumeric key is pressed
@@ -56,7 +56,7 @@ function displayEncryptedArray(artist) {
   for (var i = 0; i < artist.length; i++) {
     if (artist[i] !== " ") {
       encryptedArray.push("_");
-    } else if (artist[i] === " ") {
+    } else {
       encryptedArray.push("-");
     }
   }
@@ -66,10 +66,13 @@ function displayEncryptedArray(artist) {
 
 function decrypt(e) {
   if (e.keyCode >= 65 && e.keyCode <= 90) {
-    var eIndex = band.toLowerCase().indexOf(e.key);
     if (band.toLowerCase().indexOf(e.key) !== -1) {
-      encryptedArray[eIndex] = e.key;
-      displayEncryptedArray(e);
+      for (var i = 0; i < band.length; i++) {
+        if (band[i] === e.key) {
+          encryptedArray[i] = e.key;
+          displayEncryptedArray(e);
+        }
+      }
     }
   }
 }
@@ -95,7 +98,7 @@ function gameStart(e) {
 
 function initializeScores() {
   wins = 0;
-  guesses = 15;
+  guesses = 10;
   winText.textContent = wins;
   guessCount.textContent = guesses;
 }
