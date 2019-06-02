@@ -21,22 +21,22 @@ var bands = [
     bandName: "eagles",
     bandPicture: "assets/images/hotel-california.png",
     bandAudio: "assets/music/hotel-california.m4a"
-  },
-  {
-    bandName: "aerosmith",
-    bandPicture: "assets/images/aerosmith.png",
-    bandAudio: "assets/music/dream-on.m4a"
-  },
-  {
-    bandName: "led zeppelin",
-    bandPicture: "assets/images/led-zeppelin.jpg",
-    bandAudio: "assets/music/stairway-to-heaven.m4a"
-  },
-  {
-    bandName: "don mclean",
-    bandPicture: "assets/images/don-mclean.png",
-    bandAudio: "assets/music/american-pie.m4a"
   }
+  // {
+  //   bandName: "aerosmith",
+  //   bandPicture: "assets/images/aerosmith.png",
+  //   bandAudio: "assets/music/dream-on.m4a"
+  // },
+  // {
+  //   bandName: "led zeppelin",
+  //   bandPicture: "assets/images/led-zeppelin.jpg",
+  //   bandAudio: "assets/music/stairway-to-heaven.m4a"
+  // },
+  // {
+  //   bandName: "don mclean",
+  //   bandPicture: "assets/images/don-mclean.png",
+  //   bandAudio: "assets/music/american-pie.m4a"
+  // }
 ];
 
 //This function, gameStart, will run once an alphanumeric key is pressed
@@ -71,6 +71,14 @@ function decrypt(e) {
         if (band[i] === e.key) {
           encryptedArray[i] = e.key;
           displayEncryptedArray(e);
+          if (!encryptedArray.includes("_")) {
+            wins++;
+            winText.textContent = wins;
+            if (winText !== "0") {
+              console.log("hey");
+              return;
+            }
+          }
         }
       }
     }
@@ -78,7 +86,6 @@ function decrypt(e) {
 }
 
 function gameStart(e) {
-  //decrypt(e);
   if (e.keyCode >= 65 && e.keyCode <= 90) {
     //key codes 65 to 90 represent the alpha keys on a keyboard
     if (alreadyGuessed.includes(e.key)) {
@@ -97,7 +104,6 @@ function gameStart(e) {
 }
 
 function initializeScores() {
-  wins = 0;
   guesses = 10;
   winText.textContent = wins;
   guessCount.textContent = guesses;

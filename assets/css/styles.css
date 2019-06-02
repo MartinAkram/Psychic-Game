@@ -6,7 +6,7 @@ body {
 
 /* Target all elements in my 2 cards */
 .container-fluid {
-  margin-top: 4%;
+  margin-top: 2.5%;
   width: 70%;
 }
 .card {
@@ -71,13 +71,4 @@ body {
   padding-bottom: 1%;
   margin-top: 5%;
   margin-bottom: 2%;
-}
-
-/* Target the Reset Button */
-#reset-button {
-  font-family: sans-serif;
-  width: 50%;
-  display: block;
-  margin: auto;
-  margin-top: 50px;
 }
