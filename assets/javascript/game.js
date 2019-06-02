@@ -23,22 +23,22 @@ var bands = [
     bandName: "eagles",
     bandPicture: "assets/images/hotel-california.png",
     bandAudio: "assets/music/hotel-california.m4a"
-  },
-  {
-    bandName: "aerosmith",
-    bandPicture: "assets/images/aerosmith.png",
-    bandAudio: "assets/music/dream-on.m4a"
-  },
-  {
-    bandName: "led zeppelin",
-    bandPicture: "assets/images/led-zeppelin.jpg",
-    bandAudio: "assets/music/stairway-to-heaven.m4a"
-  },
-  {
-    bandName: "don mclean",
-    bandPicture: "assets/images/don-mclean.png",
-    bandAudio: "assets/music/american-pie.m4a"
   }
+  // {
+  //   bandName: "aerosmith",
+  //   bandPicture: "assets/images/aerosmith.png",
+  //   bandAudio: "assets/music/dream-on.m4a"
+  // },
+  // {
+  //   bandName: "led zeppelin",
+  //   bandPicture: "assets/images/led-zeppelin.jpg",
+  //   bandAudio: "assets/music/stairway-to-heaven.m4a"
+  // },
+  // {
+  //   bandName: "don mclean",
+  //   bandPicture: "assets/images/don-mclean.png",
+  //   bandAudio: "assets/music/american-pie.m4a"
+  // }
 ];
 
 //This function, gameStart, will run once an alphanumeric key is pressed
@@ -49,12 +49,12 @@ function chooseBand() {
   band = choice.bandName;
   picture = choice.bandPicture;
   audio = choice.bandAudio;
-  displayEncryptedArray(band);
+  encrypt(band);
   bandImage.src = picture;
   bandMusic.src = audio;
 }
 
-function displayEncryptedArray(artist) {
+function encrypt(artist) {
   for (var i = 0; i < artist.length; i++) {
     if (artist[i] !== " ") {
       encryptedArray.push("_");
@@ -72,7 +72,7 @@ function decrypt(e) {
       for (var i = 0; i < band.length; i++) {
         if (band[i] === e.key && guesses) {
           encryptedArray[i] = e.key;
-          displayEncryptedArray(e);
+          encrypt(e);
           while (!encryptedArray.includes("_") && wins === 0) {
             wins++;
             winText.textContent = wins;
