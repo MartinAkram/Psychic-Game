@@ -37,9 +37,13 @@ body {
 }
 
 /* Capitalize the letters guessed by the player and the letters of the solution*/
-#guessedLetters,
-#bandName {
+#guessedLetters {
   text-transform: capitalize;
+  margin-bottom: 0;
+}
+
+#bandName {
+  text-transform: lowercase;
   margin-bottom: 0;
 }
 

@@ -18,7 +18,7 @@ var encryptedArray = [];
 
 var bands = [
   {
-    bandName: "Eagls",
+    bandName: "eagles",
     bandPicture: "assets/images/hotel-california.png",
     bandAudio: "assets/music/hotel-california.m4a"
   }
@@ -65,30 +65,17 @@ function displayEncryptedArray(artist) {
 }
 
 function decrypt(e) {
-  displayEncryptedArray(e);
-  var decryptedBandName = [];
   if (e.keyCode >= 65 && e.keyCode <= 90) {
-    // for (i = 0; i < band.length; i++) {
+    var eIndex = band.toLowerCase().indexOf(e.key);
     if (band.toLowerCase().indexOf(e.key) !== -1) {
-      var keyIndex = band.toLowerCase().indexOf(e.key);
-      // for (var i = 0; i < band.length; i++) {
-      decryptedBandName.push(
-        encryptedString.replace(encryptedString[keyIndex], e.key)
-      );
-
-      //(band.replace(band.indexOf(e.key), e.key));
-      // }
-    } else {
-      return;
+      encryptedArray[eIndex] = e.key;
+      displayEncryptedArray(e);
     }
-  } else {
-    return;
   }
-  chosenBandText.textContent = decryptedBandName;
 }
 
 function gameStart(e) {
-  decrypt(e);
+  //decrypt(e);
   if (e.keyCode >= 65 && e.keyCode <= 90) {
     //key codes 65 to 90 represent the alpha keys on a keyboard
     if (alreadyGuessed.includes(e.key)) {
@@ -135,5 +122,5 @@ song.onpause = function() {
 //Run these immediately on start of page
 chooseBand();
 initializeScores();
+document.onkeydown = decrypt;
 document.onkeyup = gameStart;
-// document.onkeydown = checkUserGuesses;
