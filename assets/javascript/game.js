@@ -23,22 +23,22 @@ var bands = [
     bandName: "eagles",
     bandPicture: "assets/images/hotel-california.png",
     bandAudio: "assets/music/hotel-california.m4a"
+  },
+  {
+    bandName: "aerosmith",
+    bandPicture: "assets/images/aerosmith.png",
+    bandAudio: "assets/music/dream-on.m4a"
+  },
+  {
+    bandName: "led zeppelin",
+    bandPicture: "assets/images/led-zeppelin.jpg",
+    bandAudio: "assets/music/stairway-to-heaven.m4a"
+  },
+  {
+    bandName: "don mclean",
+    bandPicture: "assets/images/don-mclean.png",
+    bandAudio: "assets/music/american-pie.m4a"
   }
-  // {
-  //   bandName: "aerosmith",
-  //   bandPicture: "assets/images/aerosmith.png",
-  //   bandAudio: "assets/music/dream-on.m4a"
-  // },
-  // {
-  //   bandName: "led zeppelin",
-  //   bandPicture: "assets/images/led-zeppelin.jpg",
-  //   bandAudio: "assets/music/stairway-to-heaven.m4a"
-  // },
-  // {
-  //   bandName: "don mclean",
-  //   bandPicture: "assets/images/don-mclean.png",
-  //   bandAudio: "assets/music/american-pie.m4a"
-  // }
 ];
 
 //This function, gameStart, will run once an alphanumeric key is pressed
