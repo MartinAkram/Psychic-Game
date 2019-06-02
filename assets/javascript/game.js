@@ -6,6 +6,8 @@ var guessedLetters = document.getElementById("guessedLetters");
 var resetButton = document.getElementById("reset-button");
 var bandImage = document.getElementById("band-img");
 var bandMusic = document.getElementById("audio");
+var winMessage = document.getElementById("win-message");
+var loseMessage = document.getElementById("lose-message");
 var wins = 0;
 var totalGuesses = 10;
 var band;
@@ -21,22 +23,22 @@ var bands = [
     bandName: "eagles",
     bandPicture: "assets/images/hotel-california.png",
     bandAudio: "assets/music/hotel-california.m4a"
+  },
+  {
+    bandName: "aerosmith",
+    bandPicture: "assets/images/aerosmith.png",
+    bandAudio: "assets/music/dream-on.m4a"
+  },
+  {
+    bandName: "led zeppelin",
+    bandPicture: "assets/images/led-zeppelin.jpg",
+    bandAudio: "assets/music/stairway-to-heaven.m4a"
+  },
+  {
+    bandName: "don mclean",
+    bandPicture: "assets/images/don-mclean.png",
+    bandAudio: "assets/music/american-pie.m4a"
   }
-  // {
-  //   bandName: "aerosmith",
-  //   bandPicture: "assets/images/aerosmith.png",
-  //   bandAudio: "assets/music/dream-on.m4a"
-  // },
-  // {
-  //   bandName: "led zeppelin",
-  //   bandPicture: "assets/images/led-zeppelin.jpg",
-  //   bandAudio: "assets/music/stairway-to-heaven.m4a"
-  // },
-  // {
-  //   bandName: "don mclean",
-  //   bandPicture: "assets/images/don-mclean.png",
-  //   bandAudio: "assets/music/american-pie.m4a"
-  // }
 ];
 
 //This function, gameStart, will run once an alphanumeric key is pressed
@@ -68,16 +70,14 @@ function decrypt(e) {
   if (e.keyCode >= 65 && e.keyCode <= 90) {
     if (band.toLowerCase().indexOf(e.key) !== -1) {
       for (var i = 0; i < band.length; i++) {
-        if (band[i] === e.key) {
+        if (band[i] === e.key && guesses) {
           encryptedArray[i] = e.key;
           displayEncryptedArray(e);
-          if (!encryptedArray.includes("_")) {
+          while (!encryptedArray.includes("_") && wins === 0) {
             wins++;
             winText.textContent = wins;
-            if (winText !== "0") {
-              console.log("hey");
-              return;
-            }
+            winMessage.style.display = "flex";
+            loseMessage.style.display = "none";
           }
         }
       }
@@ -86,19 +86,21 @@ function decrypt(e) {
 }
 
 function gameStart(e) {
-  if (e.keyCode >= 65 && e.keyCode <= 90) {
+  if (e.keyCode >= 65 && e.keyCode <= 90 && guesses > 0) {
     //key codes 65 to 90 represent the alpha keys on a keyboard
     if (alreadyGuessed.includes(e.key)) {
       return;
     } else {
       alreadyGuessed.push(e.key);
       guesses--;
+      while (encryptedArray.includes("_") && guesses === 0) {
+        loseMessage.style.display = "flex";
+        winMessage.style.display = "none";
+        break;
+      }
     }
-    // This new variable adds spaces between the letters in the alreadyGuessed array
     var joinedLetters = alreadyGuessed.join(" ");
     guessedLetters.textContent = joinedLetters;
-  } else {
-    return;
   }
   guessCount.textContent = guesses;
 }
