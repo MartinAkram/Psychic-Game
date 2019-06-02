@@ -122,7 +122,7 @@ song.onpause = function() {
 };
 
 //Run these immediately on start of page
+chooseBand();
+initializeScores();
 document.onkeyup = gameStart;
 // document.onkeydown = checkUserGuesses;
-initializeScores();
-chooseBand();
