@@ -18,25 +18,25 @@ var encryptedArray = [];
 
 var bands = [
   {
-    bandName: "Eagles",
+    bandName: "Eagls",
     bandPicture: "assets/images/hotel-california.png",
     bandAudio: "assets/music/hotel-california.m4a"
-  },
-  {
-    bandName: "Aerosmith",
-    bandPicture: "assets/images/aerosmith.png",
-    bandAudio: "assets/music/dream-on.m4a"
-  },
-  {
-    bandName: "Led Zeppelin",
-    bandPicture: "assets/images/led-zeppelin.jpg",
-    bandAudio: "assets/music/stairway-to-heaven.m4a"
-  },
-  {
-    bandName: "Don McLean",
-    bandPicture: "assets/images/don-mclean.png",
-    bandAudio: "assets/music/american-pie.m4a"
   }
+  // {
+  //   bandName: "Aerosmith",
+  //   bandPicture: "assets/images/aerosmith.png",
+  //   bandAudio: "assets/music/dream-on.m4a"
+  // },
+  // {
+  //   bandName: "Led Zeppelin",
+  //   bandPicture: "assets/images/led-zeppelin.jpg",
+  //   bandAudio: "assets/music/stairway-to-heaven.m4a"
+  // },
+  // {
+  //   bandName: "Don McLean",
+  //   bandPicture: "assets/images/don-mclean.png",
+  //   bandAudio: "assets/music/american-pie.m4a"
+  // }
 ];
 
 //This function, gameStart, will run once an alphanumeric key is pressed
@@ -64,7 +64,31 @@ function displayEncryptedArray(artist) {
   chosenBandText.textContent = encryptedString;
 }
 
+function decrypt(e) {
+  displayEncryptedArray(e);
+  var decryptedBandName = [];
+  if (e.keyCode >= 65 && e.keyCode <= 90) {
+    // for (i = 0; i < band.length; i++) {
+    if (band.toLowerCase().indexOf(e.key) !== -1) {
+      var keyIndex = band.toLowerCase().indexOf(e.key);
+      // for (var i = 0; i < band.length; i++) {
+      decryptedBandName.push(
+        encryptedString.replace(encryptedString[keyIndex], e.key)
+      );
+
+      //(band.replace(band.indexOf(e.key), e.key));
+      // }
+    } else {
+      return;
+    }
+  } else {
+    return;
+  }
+  chosenBandText.textContent = decryptedBandName;
+}
+
 function gameStart(e) {
+  decrypt(e);
   if (e.keyCode >= 65 && e.keyCode <= 90) {
     //key codes 65 to 90 represent the alpha keys on a keyboard
     if (alreadyGuessed.includes(e.key)) {
@@ -76,24 +100,11 @@ function gameStart(e) {
     // This new variable adds spaces between the letters in the alreadyGuessed array
     var joinedLetters = alreadyGuessed.join(" ");
     guessedLetters.textContent = joinedLetters;
+  } else {
+    return;
   }
   guessCount.textContent = guesses;
 }
-
-// function checkUserGuesses(e) {
-//   console.log(band);
-//   correctGuesses = [];
-//   if (e.keyCode >= 65 && e.keyCode <= 90) {
-//     for (var i = 0; i < band.length; i++) {
-//       if (band.indexOf(e.key) != -1) {
-//         correctGuesses.push(e.key[i]);
-//       } else {
-//         return;
-//       }
-//     }
-//     console.log(correctGuesses);
-//   }
-// }
 
 function initializeScores() {
   wins = 0;
