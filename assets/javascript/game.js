@@ -1,4 +1,5 @@
 //Global Variables
+//These variables will be referenced throughout the javascript file, so I'm adding them here for easy reference
 var winText = document.getElementById("winCount");
 var chosenBandText = document.getElementById("bandName");
 var guessCount = document.getElementById("guessesRemaining");
@@ -14,10 +15,8 @@ var band;
 var picture;
 var audio;
 
-//This variable will store the letters that the user clicks
-var alreadyGuessed = [];
-var encryptedArray = [];
-
+//This object is called "bands" and it contains my 4 artists and their corresponding images & audio file
+//One of these artists will be randomly selected by my chooseBand function defined next
 var bands = [
   {
     bandName: "eagles",
@@ -41,9 +40,9 @@ var bands = [
   }
 ];
 
-//This function, gameStart, will run once an alphanumeric key is pressed
-//It will store the letters in an the empty array called "alreadyGuessed"
-
+//This function is called "chooseBand"
+//It uses a Math function to randomly choose one of my 4 artists defined above
+//It also an encryption function (defined next) that hides the letters of the chosen artist name
 function chooseBand() {
   var choice = bands[Math.floor(Math.random() * bands.length)];
   band = choice.bandName;
@@ -54,6 +53,9 @@ function chooseBand() {
   bandMusic.src = audio;
 }
 
+//This function is called "encryptedArray"
+//Once an artist is chosen at random, this function runs and pushes a dash ("_") in place of each letter from the band name
+var encryptedArray = [];
 function encrypt(artist) {
   for (var i = 0; i < artist.length; i++) {
     if (artist[i] !== " ") {
@@ -66,6 +68,10 @@ function encrypt(artist) {
   chosenBandText.textContent = encryptedString;
 }
 
+//This function is called "decrypt"
+//It runs every time a user clicks an alpha button on the keyboard
+//If the clicked letter matches one of the encrypted letters, it removes the dash (from the "encrypt" function above) and replaces it with the real letter
+//If the user guesses all the encrypted letters correctly, it updates the "wins" by 1 and displays the "winMessage" defined on line 10
 function decrypt(e) {
   if (e.keyCode >= 65 && e.keyCode <= 90) {
     if (band.toLowerCase().indexOf(e.key) !== -1) {
@@ -85,6 +91,12 @@ function decrypt(e) {
   }
 }
 
+//This function is called "alreadyGuessed"
+//It runs every time a user clicks an alpha button on the keyboard
+//If the user gusses clicks the same alpha letter more than once, this functions ignores any click after the first
+//Every time a user clicks a new letter that hasn't been clicked before, it docks the user 1 guess until it hits zero
+//If the remaining guesses hit 0, it displays the "loseMessage" defined on line 11
+var alreadyGuessed = [];
 function gameStart(e) {
   if (e.keyCode >= 65 && e.keyCode <= 90 && guesses > 0) {
     //key codes 65 to 90 represent the alpha keys on a keyboard
@@ -105,17 +117,19 @@ function gameStart(e) {
   guessCount.textContent = guesses;
 }
 
+//This function sets the initial number of guesses the user has to 10
+//It also links the html "winText" and "guessCount" elements to their corresponding global variables defined above
 function initializeScores() {
   guesses = 10;
   winText.textContent = wins;
   guessCount.textContent = guesses;
 }
-//The following lines set a button to play my song when the picture is clicked
-//The lines below were retrieved from stackoverflow...**THIS IS NOT ORIGINAL WORK**
 
+//This function is called "playANDpause"
+//It runs every time the user clicks on the "Play / Pause" button under the artist image
+//The lines below were retrieved from stackoverflow...**THIS IS NOT ORIGINAL WORK**
 var song = document.getElementById("audio");
 var playingSong = false;
-
 function playANDpause() {
   if (playingSong) {
     song.pause();
@@ -130,7 +144,8 @@ song.onpause = function() {
   playingSong = false;
 };
 
-//Run these immediately on start of page
+//These functions were defined earlier
+//They are set to run either automatically or upon a key being pressed
 chooseBand();
 initializeScores();
 document.onkeydown = decrypt;

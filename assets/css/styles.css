@@ -22,6 +22,7 @@ body {
   font-family: Impact;
 }
 
+/* Target the style of the band image displayed once the game loads */
 #band-img {
   padding: 1%;
   height: 250px;
@@ -32,6 +33,7 @@ body {
   border-width: 5px;
 }
 
+/* Target the win/lose message and style. This message is hidden until the player wins/loses */
 #win-message,
 #lose-message {
   padding: 1%;
@@ -45,6 +47,7 @@ body {
   display: none;
 }
 
+/* Target my list of instructions; align them to the left and add a sans-serif font */
 .band-card ul {
   text-align: left;
   font-family: sans-serif;
@@ -56,6 +59,7 @@ body {
   margin-bottom: 0;
 }
 
+/* Make the letters small under the Band Name section, as specified in homework instructions*/
 #bandName {
   text-transform: lowercase;
   margin-bottom: 0;
@@ -69,10 +73,7 @@ body {
   font-family: Impact;
 }
 
-.info-card img {
-  margin-bottom: 5%;
-}
-
+/* Stylize text on the info-card */
 .info-card p {
   font-family: sans-serif;
   margin-top: 4%;

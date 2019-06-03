@@ -20,10 +20,12 @@
     <div class="container-fluid">
       <!-- Gameboard view -->
       <div class="card-group" id="rps-card-group">
-        <!-- Card 1 -->
+        <!-- Card 1 contains the artist image, music, and instructions-->
         <div class="card band-card">
           <h2>Guess The Artist!</h2>
+          <!-- Artist image -->
           <img src="" id="band-img" alt="Band-Picture" />
+          <!-- Music play/pause button with link to audio file -->
           <input
             type="button"
             class="alert alert-primary"
@@ -33,6 +35,7 @@
           />
           <audio id="audio" src=""></audio>
           <hr />
+          <!-- Provide list of instructions to how the game is played -->
           <h3>Game Rules</h3>
           <ul>
             <li>There are a total of 4 bands/songs in this game!</li>
@@ -45,7 +48,7 @@
             <li>Note: The artist can be a band or an individual</li>
           </ul>
         </div>
-        <!-- Card 2 -->
+        <!-- Card 2 ... the items in this card are self explanatory -->
         <div class="card info-card">
           <h2>Let's Play!</h2>
           <hr />
@@ -65,6 +68,7 @@
             <br />
             <strong><span id="guessedLetters"></span></strong>
           </p>
+          <!-- The following two images are hidden and will only show up if the player wins/loses -->
           <img
             src="assets/images/win-message.jpg"
             id="win-message"
@@ -78,6 +82,7 @@
         </div>
       </div>
     </div>
+    <!-- Link to Javascript document -->
     <script src="assets/javascript/game.js"></script>
   </body>
 </html>
