@@ -1,12 +1,11 @@
 /* Apply to the whole page */
 body {
   background-image: url(../images/70s.jpg);
-  height: 1000px;
 }
 
 /* Target all elements in my 2 cards */
 .container-fluid {
-  margin-top: 2.5%;
+  margin-top: 2%;
   width: 70%;
 }
 .card {
