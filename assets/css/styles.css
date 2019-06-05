@@ -34,17 +34,27 @@ body {
 }
 
 /* Target the win/lose message and style. This message is hidden until the player wins/loses */
-#win-message,
-#lose-message {
+#win-image,
+#lose-image {
   padding: 1%;
   height: 200px;
   width: 200px;
-  display: block;
   margin: auto;
   border-style: dotted;
   border-width: 5px;
   opacity: 0.9;
   display: none;
+}
+
+#win-message,
+#lose-message {
+  display: none;
+  margin: auto;
+  margin-top: 3%;
+  margin-bottom: 3%;
+  font-weight: bold;
+  color: darkblue;
+  font-size: 18px;
 }
 
 /* Target my list of instructions; align them to the left and add a sans-serif font */
@@ -76,8 +86,8 @@ body {
 /* Stylize text on the info-card */
 .info-card p {
   font-family: sans-serif;
-  margin-top: 4%;
-  margin-bottom: 2 %;
+  margin-top: 3%;
+  margin-bottom: 3%;
 }
 
 /* Target the Music Button */

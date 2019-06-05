@@ -9,8 +9,9 @@ var bandImage = document.getElementById("band-img");
 var bandMusic = document.getElementById("audio");
 var winMessage = document.getElementById("win-message");
 var loseMessage = document.getElementById("lose-message");
+var winImage = document.getElementById("win-image");
+var loseImage = document.getElementById("lose-image");
 var wins = 0;
-var totalGuesses = 10;
 var band;
 var picture;
 var audio;
@@ -79,11 +80,14 @@ function decrypt(e) {
         if (band[i] === e.key && guesses) {
           encryptedArray[i] = e.key;
           encrypt(e);
-          while (!encryptedArray.includes("_") && wins === 0) {
+          while (!encryptedArray.includes("_")) {
             wins++;
             winText.textContent = wins;
             winMessage.style.display = "flex";
+            winImage.style.display = "block";
             loseMessage.style.display = "none";
+            loseImage.style.display = "none";
+            break;
           }
         }
       }
@@ -107,7 +111,9 @@ function gameStart(e) {
       guesses--;
       while (encryptedArray.includes("_") && guesses === 0) {
         loseMessage.style.display = "flex";
+        loseImage.style.display = "block";
         winMessage.style.display = "none";
+        winImage.style.display = "none";
         break;
       }
     }
@@ -151,34 +157,35 @@ initializeScores();
 document.onkeydown = decrypt;
 document.onkeyup = gameStart;
 
-//There is one piece of the homework that I was unable to complete
-//I spent several hours trying to figure out how to reset the game after a player wins/loses
-//I wasn't able to reset the game successfully while preserving the wins total
-//Below is some pseudocode that I am providing in lieu of the code itself
-/*
- * I'll name this function "gameReset"
- * It doesn't take any arguments
- * It should (theoretically) run every time a use wins or loses a round
- * The function would (theoretically) be called in the "gameStart" and "decrypt" functions defined above
- *
- *
- * function gameReset(){
- *   for (var i = 0; i < encryptedArray.length; i++){
- *     if (encryptedArray[i] !== "_"){
- *       //This section would run if the encryptedArray has been emptied of dashes (i.e. the player guessed the band correctly)
- *       chosenBandTest = [];
- *       alreadyGuessed = [];
- *       guesses = 10;
- *       }
- *
- *        else if (guesses === 0 && encryptedArray[i] === "_"){
- *         //This section would run if the user ran out of guesses before guessing the band correctly
- *         chosenBandTest = [];
- *         alreadyGuessed = [];
- *         guesses = 10;
- *         wins = 0;
- *         }
- *       }
- *     }
- *
- */
+//This event listener will run a function to reset all info on the page except "wins"
+//This event listener will only be clickable if the player guesses the artist correctly
+document.getElementById("win-message").addEventListener("click", function() {
+  winMessage.style.display = "none";
+  winImage.style.display = "none";
+  guesses = 10;
+  guessCount.textContent = guesses;
+  alreadyGuessed = [];
+  joinedLetters = [];
+  encryptedArray = [];
+  encryptedString = [];
+  guessedLetters.textContent = joinedLetters;
+  chosenBandText.textContent = encryptedString;
+  chooseBand();
+});
+
+//This event listener will run a function to reset all info on the page
+//This event listener will only be clickable if the player guesses the artist wrong
+document.getElementById("lose-message").addEventListener("click", function() {
+  loseMessage.style.display = "none";
+  loseImage.style.display = "none";
+  wins = 0;
+  winText.textContent = wins;
+  initializeScores();
+  alreadyGuessed = [];
+  joinedLetters = [];
+  encryptedArray = [];
+  encryptedString = [];
+  guessedLetters.textContent = joinedLetters;
+  chosenBandText.textContent = encryptedString;
+  chooseBand();
+});
