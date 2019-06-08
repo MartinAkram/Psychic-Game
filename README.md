@@ -13,7 +13,7 @@ Here's a quick overview of the project itself:
    It also gives a glimpse into how the worlds of HTML, CSS, Bootstrap, and vanilla JavaScript come to work together in harmony
 
 3. How users can get started with the project?
-   Users can visit the landing page for the project by clicking here: https://martinakram.github.io/Psychic-Game/
+   Users can visit the landing page for the project by clicking here: https://martinakram.github.io/Word-Guess-Game/
 
 4. Where users can get help with your project?
    The project is fairly simple and there are a lot of comments throughout the html, css, and js files that explain the steps taken
