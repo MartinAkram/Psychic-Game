@@ -18,7 +18,7 @@ Here's a quick overview of the project itself:
 
 3. How users can get started with the project?
 
-   Users can visit the landing page for the project by clicking here: https://martinakram.github.io/Psychic-Game/
+   Users can visit the landing page for the project by clicking here: https://martinakram.github.io/Word-Guess-Game/
 
 4. Where users can get help with your project?
 
