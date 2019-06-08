@@ -1,4 +1,4 @@
-# Psychic-Game
+# Word-Guess-Game
 
 This Repo includes HTML, CSS, and JavaScript element that together, along with photos and audio files, work together to create a simple guessing game. The user is given a random band/artist and asked to identify the name of the artist by examining the album cover photo as well as listening to a snippet of audio. Below is a quick summary of the project details. Please be sure to review the numerous comments provided in the html, css, and (especially) javascript files...I did my best to document each step and label it clearly so that the code can (hopefully) be sensical at first glance.
 
